@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MeetTheArrogance</string>
+    <string name="login_password_phone_number_edit_view_hint">请输入手机号码</string>
+    <string name="login_password_text_password_edit_view_hint">请输入用户密码</string>
+    <string name="login_password_text_view_hint">忘记密码?</string>
+    <string name="login_password_button_hint">登录</string>
+
+    <string name="pick_photo">选择图片</string>
+    <string name="pick_photo_without_camera">选择图片（不带拍照按钮且点击不预览图片）</string>
+    <string name="pick_one_photo">选择单张图片</string>
+    <string name="pick_photo_gif">选择gif图片</string>
+    <string name="multiple_pick_photo">多次进入PhotoPicker选择图片</string>
+
+    <string name="cancel">取消</string>
+    <string name="publish_empty_text">想说什么…</string>
+    <string name="select_from_local">从相册中选取</string>
+</resources>

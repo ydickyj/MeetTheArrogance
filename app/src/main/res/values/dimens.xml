@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_edit_view_padding_left_and_right">7dp</dimen>
+     <!--所有activity标题的高度-->
+    <dimen name="activity_all_header_height">40dp</dimen>
+    <!--选项的高度-->
+    <dimen name="item_height_default">10dp</dimen>
+</resources>

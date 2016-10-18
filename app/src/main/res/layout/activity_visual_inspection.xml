@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_all_header_height"
+        android:background="@color/header_color_new">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="11dp"
+            android:paddingLeft="@dimen/item_height_default"
+            android:paddingTop="11dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/header_back_selector" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="直观检查"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_handle"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|right"
+            android:paddingRight="@dimen/item_height_default"
+            android:text="校验"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginTop="@dimen/item_height_default"
+        android:text="诊断："/>
+    <View
+        android:layout_marginStart="2.5dp"
+        android:layout_marginEnd="2.5dp"
+        android:background="#0093b9"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <ListView
+        android:id="@+id/visual_inspection_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#00000000" />
+</LinearLayout>
