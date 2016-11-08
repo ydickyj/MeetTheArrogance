@@ -14,4 +14,5 @@
     <string name="cancel">取消</string>
     <string name="publish_empty_text">想说什么…</string>
     <string name="select_from_local">从相册中选取</string>
+    <string name="tts_speak">点我说话</string>
 </resources>

@@ -43,6 +43,8 @@ public class TestListActivity extends Activity {
 //                        startActivity(new Intent(TestListActivity.this, PublishActivity.class));
                     case 4:
                         startActivity(new Intent(TestListActivity.this,TimeTestActivity.class));
+                    case 5:
+                        startActivity(new Intent(TestListActivity.this,TTSActivity.class));
                         break;
                 }
             }
@@ -55,5 +57,6 @@ public class TestListActivity extends Activity {
         mlist.add("屏幕测试");
         mlist.add("拍照测试");
         mlist.add("时间测试");
+        mlist.add("播报测试");
     }
 }

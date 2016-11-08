@@ -29,6 +29,7 @@
         <activity android:name=".TestListActivity"/>
         <activity android:name=".VisualInspectionActivity"/>
         <activity android:name=".TimeTestActivity"/>
+        <activity android:name=".TTSActivity"/>
     </application>
 
 </manifest>
