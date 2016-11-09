@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="app.dicky.meetthearrogance"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.dicky.meetthearrogance">
 
     <permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -29,7 +29,8 @@
         <activity android:name=".TestListActivity"/>
         <activity android:name=".VisualInspectionActivity"/>
         <activity android:name=".TimeTestActivity"/>
-        <activity android:name=".TTSActivity"/>
+        <activity android:name=".MainTabActivity" />
+        <activity android:name=".MainFragment" />
     </application>
 
 </manifest>
