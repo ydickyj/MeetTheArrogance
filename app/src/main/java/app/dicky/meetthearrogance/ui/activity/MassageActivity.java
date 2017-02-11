@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.MyExpandableListViewAdapter;
-import app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView;
+import app.dicky.meetthearrogance.widget.AnimatedExpandableListView;
 
 /**
  *

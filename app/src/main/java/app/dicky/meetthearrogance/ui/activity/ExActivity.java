@@ -15,7 +15,7 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.TextView;
 
 import app.dicky.meetthearrogance.R;
-import app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView;
+import app.dicky.meetthearrogance.widget.AnimatedExpandableListView;
 
 /**
  * This is an example usage of the AnimatedExpandableListView class.

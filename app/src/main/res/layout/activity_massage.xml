@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="TEST" />
 
-    <app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView
+    <app.dicky.meetthearrogance.widget.AnimatedExpandableListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

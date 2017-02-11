@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import app.dicky.meetthearrogance.R;
-import app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView;
+import app.dicky.meetthearrogance.widget.AnimatedExpandableListView;
 
 import java.util.List;
 

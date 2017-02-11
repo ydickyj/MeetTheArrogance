@@ -7,25 +7,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         android:weightSum="1">
         <TextView
-            android:layout_weight="1"
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-        <app.dicky.meetthearrogance.customComponent.SmoothCheckBox
+
+        <app.dicky.meetthearrogance.widget.SmoothCheckBox
             android:layout_width="25dp"
             android:layout_height="25dp" />
     </LinearLayout>
 
     <View
-        android:padding="8dp"
-        android:background="#0093b9"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="#0093b9"
+        android:padding="8dp" />
 
     <TextView
         android:id="@+id/tv_content_first"

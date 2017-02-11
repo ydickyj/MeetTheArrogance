@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.utils.beanCommon.Data;
-import app.dicky.meetthearrogance.customComponent.LoadingButton;
+import app.dicky.meetthearrogance.widget.LoadingButton;
 
 import java.util.ArrayList;
 
