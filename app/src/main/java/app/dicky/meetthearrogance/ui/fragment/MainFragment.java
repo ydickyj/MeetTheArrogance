@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.fragment;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -16,9 +16,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.ButtonFragment;
 import app.dicky.meetthearrogance.adapter.MyFragmentPagerAdapter;
 import app.dicky.meetthearrogance.adapter.TestFragment;
+import app.dicky.meetthearrogance.ui.activity.TTSActivity;
 
 /**
  * Created by Administrator on 2016/11/9.

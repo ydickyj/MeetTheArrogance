@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Locale;
+
+import app.dicky.meetthearrogance.R;
 
 public class TTSActivity extends Fragment {
     /** Called when the activity is first created. */

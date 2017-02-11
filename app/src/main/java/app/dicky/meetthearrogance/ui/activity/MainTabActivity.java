@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.app.Activity;
 import android.app.LocalActivityManager;
@@ -16,6 +16,8 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
+import app.dicky.meetthearrogance.R;
 
 public class MainTabActivity extends Activity {
 

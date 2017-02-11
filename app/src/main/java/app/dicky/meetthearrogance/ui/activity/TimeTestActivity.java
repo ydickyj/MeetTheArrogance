@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import app.dicky.meetthearrogance.R;
 
 /**
  * copyright© www.pemt.com.cn

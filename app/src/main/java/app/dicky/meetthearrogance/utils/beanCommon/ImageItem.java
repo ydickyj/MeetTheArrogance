@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance.bean;
+package app.dicky.meetthearrogance.utils.beanCommon;
 
 import java.io.Serializable;
 

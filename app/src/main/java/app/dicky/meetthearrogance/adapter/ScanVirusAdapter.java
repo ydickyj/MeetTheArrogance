@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import app.dicky.meetthearrogance.R;
-import app.dicky.meetthearrogance.bean.Data;
+
+import app.dicky.meetthearrogance.utils.beanCommon.Data;
 
 import java.util.List;
 

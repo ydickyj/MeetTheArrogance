@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import app.dicky.meetthearrogance.ui.fragment.MainFragment;
+import app.dicky.meetthearrogance.R;
 
 /**
  *On home

@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance.bean;
+package app.dicky.meetthearrogance.utils.beanCommon;
 
 import android.graphics.drawable.Drawable;
 
@@ -7,13 +7,13 @@ import android.graphics.drawable.Drawable;
  * Created by eng005 on 2016/7/14
  */
 public class Data {
-    String name;
-    boolean nameIsTrue;
     public String appName;
     public boolean isVirus;
     public String packagename;
     public String description;
     public Drawable appicon;
+    String name;
+    boolean nameIsTrue;
 
     public String getAppName() {
         return appName;

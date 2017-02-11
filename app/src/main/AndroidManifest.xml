@@ -15,22 +15,22 @@
         android:label="@string/app_name"
         android:theme="@style/MyAppTheme">
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ui.activity.LoginActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".LoginPasswordActivity"/>
-        <activity android:name=".MassageActivity"/>
-        <activity android:name=".ExActivity"/>
-        <activity android:name=".TestActivity"/>
-        <activity android:name=".TestListActivity"/>
-        <activity android:name=".VisualInspectionActivity"/>
-        <activity android:name=".TimeTestActivity"/>
-        <activity android:name=".MainTabActivity" />
-        <activity android:name=".MainFragment" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.LoginPasswordActivity" />
+        <activity android:name=".ui.activity.MassageActivity" />
+        <activity android:name=".ui.activity.ExActivity" />
+        <activity android:name=".ui.activity.TestActivity" />
+        <activity android:name=".ui.activity.TestListActivity" />
+        <activity android:name=".ui.activity.VisualInspectionActivity" />
+        <activity android:name=".ui.activity.TimeTestActivity" />
+        <activity android:name=".ui.activity.MainTabActivity" />
+        <activity android:name=".ui.fragment.MainFragment" />
     </application>
 
 </manifest>

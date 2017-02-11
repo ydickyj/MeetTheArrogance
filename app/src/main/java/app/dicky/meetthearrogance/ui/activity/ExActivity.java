@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.TextView;
+
+import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView;
 
 /**

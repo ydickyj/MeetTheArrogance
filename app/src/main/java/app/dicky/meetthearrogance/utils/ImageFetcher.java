@@ -5,8 +5,9 @@ import android.database.Cursor;
 import android.provider.MediaStore.Images.Media;
 import android.provider.MediaStore.Images.Thumbnails;
 import android.util.Log;
-import app.dicky.meetthearrogance.bean.ImageBucket;
-import app.dicky.meetthearrogance.bean.ImageItem;
+
+import app.dicky.meetthearrogance.utils.beanCommon.ImageBucket;
+import app.dicky.meetthearrogance.utils.beanCommon.ImageItem;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -19,6 +20,10 @@ import java.util.Map.Entry;
 public class ImageFetcher
 {
 	private static ImageFetcher instance;
+	/**
+	 * 是否已加载过了相册集合
+	 */
+	boolean hasBuildImagesBucketList = false;
 	private Context mContext;
 	private HashMap<String, ImageBucket> mBucketList = new HashMap<String, ImageBucket>();
 	private HashMap<String, String> mThumbnailList = new HashMap<String, String>();
@@ -46,11 +51,6 @@ public class ImageFetcher
 		}
 		return instance;
 	}
-
-	/**
-	 * 是否已加载过了相册集合
-	 */
-	boolean hasBuildImagesBucketList = false;
 
 	/**
 	 * 得到图片集

@@ -1,10 +1,12 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import app.dicky.meetthearrogance.R;
 
 public class MainActivity extends Activity {
 

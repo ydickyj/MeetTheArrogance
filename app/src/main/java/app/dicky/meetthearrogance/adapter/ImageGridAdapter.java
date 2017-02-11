@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import app.dicky.meetthearrogance.R;
-import app.dicky.meetthearrogance.bean.ImageItem;
+import app.dicky.meetthearrogance.utils.beanCommon.ImageItem;
 import app.dicky.meetthearrogance.utils.ImageDisplayer;
 
 import java.util.List;

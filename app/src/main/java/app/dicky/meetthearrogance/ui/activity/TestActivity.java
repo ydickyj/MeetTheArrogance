@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -13,11 +13,13 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.AnimationAdapter;
 import app.dicky.meetthearrogance.adapter.MyBaseAdapter;
 import app.dicky.meetthearrogance.adapter.MyExpandableListViewAdapter;
 import app.dicky.meetthearrogance.adapter.SwingBottomInAnimationAdapter;
-import app.dicky.meetthearrogance.bean.Data;
+import app.dicky.meetthearrogance.utils.beanCommon.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,14 +35,6 @@ public class TestActivity extends Activity {
     private static final int SCAN_BENGIN = 100;
     private static final int SCANNING = 101;
     private static final int SCAN_FINISH = 102;
-
-    private ArrayList<Map<String, String>> list;
-    private ListView ListView;
-    private ArrayList<Data> mList = new ArrayList<>();
-    private List<Data> dataList;
-    private int mCount = 0;
-    private MyExpandableListViewAdapter adapter;
-
     private static Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -65,6 +59,12 @@ public class TestActivity extends Activity {
             }
         }
     };
+    private ArrayList<Map<String, String>> list;
+    private ListView ListView;
+    private ArrayList<Data> mList = new ArrayList<>();
+    private List<Data> dataList;
+    private int mCount = 0;
+    private MyExpandableListViewAdapter adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

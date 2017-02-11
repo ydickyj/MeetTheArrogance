@@ -2,13 +2,13 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".MainActivity" >
+    tools:context=".ui.activity.MainActivity">
 
     <Button
-        android:text="TEST"
         android:id="@+id/testBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="TEST" />
 
     <app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView
         android:id="@+id/listView"

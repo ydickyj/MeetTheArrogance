@@ -1,4 +1,4 @@
-package app.dicky.meetthearrogance;
+package app.dicky.meetthearrogance.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.Toast;
+
+import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.MyExpandableListViewAdapter;
 import app.dicky.meetthearrogance.customComponent.AnimatedExpandableListView;
 
