@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
 
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:bb_activeTabColor="@color/qq_blue"
+        app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
-        <EditText
-            android:layout_weight="3"
-            android:id="@+id/et_password"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:imeOptions="actionGo"
-            android:inputType="numberPassword"
-            android:maxLength="6"
-            android:singleLine="true"/>
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

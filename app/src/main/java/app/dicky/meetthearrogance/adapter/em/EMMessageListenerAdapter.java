@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 创建者:   dicky
- * 创建时间:  2017/2/11
+ * 创建时间:  2016/10/20 17:51
  * 描述：    TODO
  */
 public class EMMessageListenerAdapter implements EMMessageListener {

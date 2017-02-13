@@ -20,7 +20,7 @@ import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.ButtonFragment;
 import app.dicky.meetthearrogance.adapter.MyFragmentPagerAdapter;
 import app.dicky.meetthearrogance.adapter.TestFragment;
-import app.dicky.meetthearrogance.ui.activity.TTSActivity;
+import app.dicky.meetthearrogance.ui.activity.test.TTSActivity;
 
 /**
  * Created by Administrator on 2016/11/9.

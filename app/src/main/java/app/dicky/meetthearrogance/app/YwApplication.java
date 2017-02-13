@@ -26,7 +26,7 @@ import app.dicky.meetthearrogance.BuildConfig;
 import app.dicky.meetthearrogance.R;
 import app.dicky.meetthearrogance.adapter.em.EMMessageListenerAdapter;
 import app.dicky.meetthearrogance.database.DatabaseManager;
-import app.dicky.meetthearrogance.ui.activity.ExActivity;
+import app.dicky.meetthearrogance.ui.activity.test.ExActivity;
 import cn.bmob.v3.Bmob;
 
 import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
