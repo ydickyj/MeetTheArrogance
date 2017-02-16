@@ -72,7 +72,7 @@ public class YwApplication extends Application {
     }
 
     private void initBmob() {
-        Bmob.initialize(this, "df5a02bd4c7875549784ceb033407cc4");
+        Bmob.initialize(this, "f49020b9fb1bfff5afcd724eaca24a8d");
     }
 
     private void initHuanXin() {

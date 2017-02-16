@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        icon="@mipmap/ic_conversation_selected_2"
+        barColorWhenSelected="#0093b9"
+        icon="@mipmap/massage"
         id="@id/conversations"
         title="@string/messages" />
     <tab
-        icon="@mipmap/ic_contact_selected_2"
+        barColorWhenSelected="#f28379"
+        icon="@mipmap/contact"
         id="@id/contacts"
         title="@string/contacts" />
     <tab
-        icon="@mipmap/ic_plugin_selected_2"
+        barColorWhenSelected="#a62631"
+        icon="@mipmap/dynamic"
         id="@id/dynamic"
         title="@string/dynamic" />
 </tabs>

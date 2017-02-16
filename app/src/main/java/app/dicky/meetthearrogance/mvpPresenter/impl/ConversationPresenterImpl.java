@@ -15,7 +15,7 @@ import app.dicky.meetthearrogance.mvpView.ConversationView;
 import app.dicky.meetthearrogance.utils.ThreadUtils;
 
 /**
- * 创建者:   Leon
+ * 创建者:   dicky
  * 创建时间:  2016/10/21 9:51
  * 描述：    TODO
  */

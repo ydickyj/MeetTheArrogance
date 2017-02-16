@@ -1,5 +1,7 @@
 package app.dicky.meetthearrogance.mvpPresenter;
 
+import java.io.File;
+
 /**
  * 创建者:   Leon
  * 创建时间:  2016/10/16 22:20
@@ -7,5 +9,5 @@ package app.dicky.meetthearrogance.mvpPresenter;
  */
 public interface RegisterPresenter {
 
-    void register(String userName, String pwd, String pwdConfirm);
+    void register(String userName, String pwd, String pwdConfirm, File mFile);
 }

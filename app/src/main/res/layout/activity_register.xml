@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login_bk"
+    android:background="@mipmap/register_background"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:id="@+id/head_portrait"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/avatar6" />
+        android:src="@mipmap/register" />
 
     <EditText
         android:id="@id/user_name"
@@ -21,7 +24,9 @@
         android:hint="@string/user_name"
         android:imeOptions="actionNext"
         android:inputType="text"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/white"
+        android:theme="@style/MyEditText" />
 
     <EditText
         android:id="@id/password"
@@ -31,7 +36,9 @@
         android:hint="@string/user_password"
         android:imeOptions="actionNext"
         android:inputType="numberPassword"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/white"
+        android:theme="@style/MyEditText" />
 
     <EditText
         android:id="@id/confirm_password"
@@ -41,14 +48,16 @@
         android:hint="@string/user_password_confirm"
         android:imeOptions="actionGo"
         android:inputType="numberPassword"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/white"
+        android:theme="@style/MyEditText" />
 
     <Button
         android:id="@id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/btn_login"
+        android:background="@drawable/yw_login_btn"
         android:gravity="center"
         android:text="@string/register"
         android:textColor="@android:color/white"
