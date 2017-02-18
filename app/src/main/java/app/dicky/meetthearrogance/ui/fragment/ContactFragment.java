@@ -1,12 +1,14 @@
 package app.dicky.meetthearrogance.ui.fragment;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyphenate.chat.EMClient;
@@ -48,7 +50,8 @@ public class ContactFragment extends BaseFragment implements ContactView {
     SlideBar mSlideBar;
     @BindView(R.id.section)
     TextView mSection;
-
+    @BindView(R.id.head_title)
+    RelativeLayout mHeadTitle;
     private ContactListAdapter mContactListAdapter;
 
 
@@ -122,7 +125,7 @@ public class ContactFragment extends BaseFragment implements ContactView {
     private void initView() {
         mTitle.setText(getString(R.string.contacts));
         mAdd.setVisibility(View.VISIBLE);
-
+        mHeadTitle.setBackgroundColor(Color.parseColor("#f28379"));
         initRecyclerView();
 
         mSwipeRefreshLayout.setColorSchemeResources(R.color.qq_blue, R.color.qq_red);

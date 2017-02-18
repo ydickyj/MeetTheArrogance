@@ -6,8 +6,11 @@ import android.view.ViewGroup;
 
 import com.hyphenate.chat.EMConversation;
 
+import org.androidannotations.annotations.rest.Head;
+
 import java.util.List;
 
+import app.dicky.meetthearrogance.database.bean.HeadEm;
 import app.dicky.meetthearrogance.widget.ConversationItemView;
 
 /**
@@ -19,11 +22,12 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     public static final String TAG = "ConversationAdapter";
 
     public Context mContext;
-    public List<EMConversation> mEMConversations;
+    //    public List<EMConversation> mEMConversations;
+    public List<HeadEm> mHeadEm;
 
-    public ConversationAdapter(Context context, List<EMConversation> conversations) {
+    public ConversationAdapter(Context context, List<HeadEm> conversations) {
         mContext = context;
-        mEMConversations = conversations;
+        mHeadEm = conversations;
     }
 
     @Override
@@ -33,12 +37,12 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
 
     @Override
     public void onBindViewHolder(ConversationItemViewHolder holder, int position) {
-        holder.mConversationItemView.bindView(mEMConversations.get(position));
+        holder.mConversationItemView.bindView(mHeadEm.get(position).getmEMConversation(), mHeadEm.get(position).getmHeadPortrait());
     }
 
     @Override
     public int getItemCount() {
-        return mEMConversations.size();
+        return mHeadEm.size();
     }
 
 

@@ -20,11 +20,21 @@ public class ContactDao extends AbstractDao<Contact, Long> {
 
     public static final String TABLENAME = "CONTACT";
 
-    public ContactDao(DaoConfig config) {
-        super(config);
+    /**
+     * Properties of entity Contact.<br/>
+     * Can be used for QueryBuilder and for referencing column names.
+     */
+    public static class Properties {
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
+        public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
+        public final static Property HeadPortraitPath = new Property(2, String.class, "headPortraitPath", false, "HEAD_PORTRAIT_PATH");
     }
 
 
+    public ContactDao(DaoConfig config) {
+        super(config);
+    }
+    
     public ContactDao(DaoConfig config, DaoSession daoSession) {
         super(config, daoSession);
     }
@@ -36,7 +46,8 @@ public class ContactDao extends AbstractDao<Contact, Long> {
         String constraint = ifNotExists ? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"CONTACT\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"USERNAME\" TEXT);"); // 1: username
+                "\"USERNAME\" TEXT," + // 1: username
+                "\"HEAD_PORTRAIT_PATH\" TEXT);"); // 2: headPortraitPath
     }
 
     /** Drops the underlying database table. */
@@ -48,53 +59,65 @@ public class ContactDao extends AbstractDao<Contact, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, Contact entity) {
         stmt.clearBindings();
-
+ 
         Long id = entity.getId();
         if (id != null) {
             stmt.bindLong(1, id);
         }
-
+ 
         String username = entity.getUsername();
         if (username != null) {
             stmt.bindString(2, username);
+        }
+
+        String headPortraitPath = entity.getHeadPortraitPath();
+        if (headPortraitPath != null) {
+            stmt.bindString(3, headPortraitPath);
         }
     }
 
     @Override
     protected final void bindValues(SQLiteStatement stmt, Contact entity) {
         stmt.clearBindings();
-
+ 
         Long id = entity.getId();
         if (id != null) {
             stmt.bindLong(1, id);
         }
-
+ 
         String username = entity.getUsername();
         if (username != null) {
             stmt.bindString(2, username);
+        }
+
+        String headPortraitPath = entity.getHeadPortraitPath();
+        if (headPortraitPath != null) {
+            stmt.bindString(3, headPortraitPath);
         }
     }
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
         return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
-    }
+    }    
 
     @Override
     public Contact readEntity(Cursor cursor, int offset) {
         Contact entity = new Contact( //
                 cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-                cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1) // username
+                cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // username
+                cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // headPortraitPath
         );
         return entity;
     }
-
+     
     @Override
     public void readEntity(Cursor cursor, Contact entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setUsername(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setHeadPortraitPath(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
      }
-     
+    
     @Override
     protected final Long updateKeyAfterInsert(Contact entity, long rowId) {
         entity.setId(rowId);
@@ -109,7 +132,7 @@ public class ContactDao extends AbstractDao<Contact, Long> {
             return null;
         }
     }
-    
+
     @Override
     public boolean hasKey(Contact entity) {
         return entity.getId() != null;
@@ -118,15 +141,6 @@ public class ContactDao extends AbstractDao<Contact, Long> {
     @Override
     protected final boolean isEntityUpdateable() {
         return true;
-    }
-
-    /**
-     * Properties of entity Contact.<br/>
-     * Can be used for QueryBuilder and for referencing column names.
-     */
-    public static class Properties {
-        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
     }
     
 }

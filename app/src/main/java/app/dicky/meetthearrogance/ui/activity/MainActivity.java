@@ -1,6 +1,7 @@
 package app.dicky.meetthearrogance.ui.activity;
 
 import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
@@ -14,6 +15,7 @@ import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabSelectListener;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.dicky.meetthearrogance.R;
@@ -28,14 +30,26 @@ public class MainActivity extends BaseActivity {
     BottomBar mBottomBar;
     @BindView(R.id.fragment_container)
     FrameLayout mFragmentContainer;
+    List<Fragment> fragments;
+    FragmentTransaction fragmentTransaction;
     private FragmentManager mFragmentManager;
     private OnTabSelectListener mOnTabSelectListener = new OnTabSelectListener() {
         @Override
         public void onTabSelected(@IdRes int tabId) {
-            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, FragmentFactory.getInstance().getFragment(tabId)).commit();
+            fragmentTransaction = mFragmentManager.beginTransaction();
+            int index = FragmentFactory.getInstance().switchId(tabId);
+            for (int i = 0; i < fragments.size(); i++) {
+                if (i == index) {
+                    fragmentTransaction.show(fragments.get(i));
+                } else {
+                    fragmentTransaction.hide(fragments.get(i));
+                }
+            }
+            fragmentTransaction.commit();
         }
     };
+
+
     private EMMessageListenerAdapter mEMMessageListenerAdapter = new EMMessageListenerAdapter() {
 
         //该回调在子线程中调用
@@ -73,6 +87,20 @@ public class MainActivity extends BaseActivity {
     protected void init() {
         super.init();
         mFragmentManager = getSupportFragmentManager();
+        fragmentTransaction = mFragmentManager.beginTransaction();
+
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragments = new ArrayList<>();
+        fragments.add(FragmentFactory.getInstance().getConversationFragment());
+        fragments.add(FragmentFactory.getInstance().getContactFragment());
+        fragments.add(FragmentFactory.getInstance().getDynamicFragment());
+        fragments.add(FragmentFactory.getInstance().getPersonFragment());
+        fragmentTransaction.add(R.id.fragment_container, fragments.get(0));
+        fragmentTransaction.add(R.id.fragment_container, fragments.get(1));
+        fragmentTransaction.add(R.id.fragment_container, fragments.get(2));
+        fragmentTransaction.add(R.id.fragment_container, fragments.get(3));
+        fragmentTransaction.show(fragments.get(0)).hide(fragments.get(1)).hide(fragments.get(2)).hide(fragments.get(3));
+        fragmentTransaction.commit();
         mBottomBar.setOnTabSelectListener(mOnTabSelectListener);
         EMClient.getInstance().chatManager().addMessageListener(mEMMessageListenerAdapter);
         EMClient.getInstance().addConnectionListener(mEMConnectionListener);

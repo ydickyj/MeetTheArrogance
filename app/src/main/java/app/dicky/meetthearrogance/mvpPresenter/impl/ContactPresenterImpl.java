@@ -1,21 +1,36 @@
 package app.dicky.meetthearrogance.mvpPresenter.impl;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Environment;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
+
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 import app.dicky.meetthearrogance.database.DatabaseManager;
 import app.dicky.meetthearrogance.mvpModel.ContactListItem;
+import app.dicky.meetthearrogance.mvpModel.User;
 import app.dicky.meetthearrogance.mvpPresenter.ContactPresenter;
 import app.dicky.meetthearrogance.utils.ThreadUtils;
 import app.dicky.meetthearrogance.mvpView.ContactView;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.DownloadFileListener;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.QueryListener;
 
 /**
- * 创建者:   Leon
+ * 创建者:   dicky
  * 创建时间:  2016/10/18 15:34
  * 描述：    TODO
  */
@@ -112,24 +127,57 @@ public class ContactPresenterImpl implements ContactPresenter {
                 return o1.charAt(0) - o2.charAt(0);//ascending order
             }
         });
-        DatabaseManager.getInstance().deleteAllContacts();
+        syncData(contacts);
+    }
+
+    private void saveContactToDatabase(String userName, String headPath) {
+        DatabaseManager.getInstance().saveContact(userName, headPath);
+    }
+
+    /**
+     * 服务器数据同步至数据库
+     */
+
+    void syncData(final List<String> contacts) {
+        int isDone = 1;
         if (!contacts.isEmpty()) {
             for (int i = 0; i < contacts.size(); i++) {
-                ContactListItem item = new ContactListItem();
+                final ContactListItem item = new ContactListItem();
                 item.userName = contacts.get(i);
+                String localHeadPath = DatabaseManager.getInstance().queryData(item.userName).getHeadPortraitPath();
+                if (localHeadPath == "" || localHeadPath == null) {
+                    mContactListItems.clear();
+                    isDone = 0;
+                    Log.e("tag3", "" + isDone);
+                    BmobQuery<User> query = new BmobQuery<User>();
+                    query.addWhereEqualTo("username", item.userName);
+                    query.findObjects(new FindListener<User>() {
+                        @Override
+                        public void done(List<User> list, BmobException e) {
+                            if (e == null) {
+                                BmobFile file = list.get(0).getUserHeadImage();
+                                downloadFile(contacts, item, file);
+                            }
+                        }
+                    });
+                    return;
+                } else {
+                    isDone = isDone * 2;
+                    Log.e("tag", "" + localHeadPath);
+                    item.setHeadPath(localHeadPath);
+                    DatabaseManager.getInstance().deleteContacts(item.userName);
+                    saveContactToDatabase(item.userName, localHeadPath);
+                }
                 if (itemInSameGroup(i, item)) {
                     item.showFirstLetter = false;
                 }
                 mContactListItems.add(item);
-                saveContactToDatabase(item.userName);
+            }
+            if (isDone != 0) {
+                notifyGetContactListSuccess();
             }
         }
     }
-
-    private void saveContactToDatabase(String userName) {
-        DatabaseManager.getInstance().saveContact(userName);
-    }
-
     /**
      * 当前联系人跟上个联系人比较，如果首字符相同则返回true
      *
@@ -148,5 +196,30 @@ public class ContactPresenterImpl implements ContactPresenter {
                 mContactView.onGetContactListSuccess();
             }
         });
+    }
+
+    private void downloadFile(final List<String> contacts, final ContactListItem item, BmobFile file) {
+        //允许设置下载文件的存储路径，默认下载文件的目录为：context.getApplicationContext().getCacheDir()+"/bmob/"
+        File saveFile = new File(Environment.getExternalStorageDirectory(), file.getFilename());
+        file.download(saveFile, new DownloadFileListener() {
+
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void done(String savePath, BmobException e) {
+                Log.e("tag2", "" + savePath);
+                item.setHeadPath(savePath);
+                saveContactToDatabase(item.userName, savePath);
+                syncData(contacts);
+            }
+
+            @Override
+            public void onProgress(Integer value, long newworkSpeed) {
+            }
+
+        });
+
     }
 }

@@ -5,7 +5,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 /**
- * 创建者:   Leon
+ * 创建者:   dicky
  * 创建时间:  2016/10/21 17:47
  * 描述：    TODO
  */
@@ -17,10 +17,13 @@ public class Contact {
 
     private String username;
 
-    @Generated(hash = 1642963851)
-    public Contact(Long id, String username) {
+    private String headPortraitPath;
+
+    @Generated(hash = 2011378201)
+    public Contact(Long id, String username, String headPortraitPath) {
         this.id = id;
         this.username = username;
+        this.headPortraitPath = headPortraitPath;
     }
 
     @Generated(hash = 672515148)
@@ -43,4 +46,11 @@ public class Contact {
         this.username = username;
     }
 
+    public String getHeadPortraitPath() {
+        return this.headPortraitPath;
+    }
+
+    public void setHeadPortraitPath(String headPortraitPath) {
+        this.headPortraitPath = headPortraitPath;
+    }
 }

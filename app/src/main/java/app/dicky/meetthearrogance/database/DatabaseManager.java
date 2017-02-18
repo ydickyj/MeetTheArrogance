@@ -12,6 +12,7 @@ import app.dicky.greendao.gen.DaoMaster;
 import app.dicky.greendao.gen.DaoSession;
 import app.dicky.meetthearrogance.app.Constant;
 import app.dicky.meetthearrogance.database.bean.Contact;
+import app.dicky.meetthearrogance.mvpModel.User;
 
 /**
  * 创建者:   dicky
@@ -43,9 +44,10 @@ public class DatabaseManager {
         mDaoSession = daoMaster.newSession();
     }
 
-    public void saveContact(String userName) {
+    public void saveContact(String userName, String mheadPath) {
         Contact contact = new Contact();
         contact.setUsername(userName);
+        contact.setHeadPortraitPath(mheadPath);
         mDaoSession.getContactDao().save(contact);
     }
 
@@ -62,5 +64,24 @@ public class DatabaseManager {
     public void deleteAllContacts() {
         ContactDao contactDao = mDaoSession.getContactDao();
         contactDao.deleteAll();
+    }
+
+    public Contact queryData(String Value) {
+        ContactDao contactDao = mDaoSession.getContactDao();
+        List<Contact> mList = contactDao.queryBuilder().where(ContactDao.Properties.Username.eq(Value)).build().list();
+        if (mList.size() == 0) {
+            return new Contact();
+        }
+        return mList.get(0);
+    }
+
+    public void deleteContacts(String value) {
+        ContactDao contactDao = mDaoSession.getContactDao();
+        List<Contact> mList = contactDao.queryBuilder().where(ContactDao.Properties.Username.eq(value)).build().list();
+        if (mList.size() != 0) {
+            for (int i = 0; i < mList.size(); i++) {
+                contactDao.deleteByKey(mList.get(i).getId());
+            }
+        }
     }
 }

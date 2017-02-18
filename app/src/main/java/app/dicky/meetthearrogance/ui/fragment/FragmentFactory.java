@@ -1,6 +1,5 @@
 package app.dicky.meetthearrogance.ui.fragment;
 
-
 import app.dicky.meetthearrogance.R;
 
 /**
@@ -16,6 +15,7 @@ public class FragmentFactory {
     private BaseFragment mMessageFragment;
     private BaseFragment mContactFragment;
     private BaseFragment mDynamicFragment;
+    private BaseFragment mPersonFragment;
 
     public static FragmentFactory getInstance() {
         if (sFragmentFactory == null) {
@@ -40,26 +40,46 @@ public class FragmentFactory {
         return null;
     }
 
-    private BaseFragment getConversationFragment() {
+    public BaseFragment getConversationFragment() {
         if (mMessageFragment == null) {
             mMessageFragment = new ConversationFragment();
         }
         return mMessageFragment;
     }
 
-    private BaseFragment getDynamicFragment() {
+    public BaseFragment getDynamicFragment() {
         if (mDynamicFragment == null) {
             mDynamicFragment = new DynamicFragment();
         }
         return mDynamicFragment;
     }
 
-    private BaseFragment getContactFragment() {
+    public BaseFragment getContactFragment() {
         if (mContactFragment == null) {
             mContactFragment = new ContactFragment();
         }
         return mContactFragment;
     }
 
+    public BaseFragment getPersonFragment() {
+        if (mPersonFragment == null) {
+            mPersonFragment = new PersonFragment();
+        }
+        return mPersonFragment;
+    }
 
+
+    public int switchId(int id) {
+        switch (id) {
+            case R.id.conversations:
+                return 0;
+            case R.id.contacts:
+                return 1;
+            case R.id.dynamic:
+                return 2;
+            case R.id.person:
+                return 3;
+        }
+        return -1;
+    }
 }

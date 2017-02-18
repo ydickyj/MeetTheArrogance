@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/header" />
+    <include
+        android:id="@+id/head_title"
+        layout="@layout/header" />
 
 
     <ImageView
@@ -13,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="30dp"
-        android:src="@mipmap/avatar6" />
+        android:src="@mipmap/register" />
 
 
     <Button

@@ -15,4 +15,9 @@
         icon="@mipmap/dynamic"
         id="@id/dynamic"
         title="@string/dynamic" />
+    <tab
+        barColorWhenSelected="#04dd98"
+        icon="@mipmap/person"
+        id="@id/person"
+        title="@string/person" />
 </tabs>

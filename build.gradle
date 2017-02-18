@@ -6,6 +6,7 @@ buildscript {
         mavenCentral()
         maven {
             url "https://raw.githubusercontent.com/HyphenateInc/Hyphenate-SDK-Android/master/repository"
+
         }
     }
 

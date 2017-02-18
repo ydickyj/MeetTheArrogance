@@ -141,14 +141,14 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         String confirmPassword = mConfirmPassword.getText().toString().trim();
         if (headPortraitSelected) {
             try {
-                mHPImage = ImageUtils.saveFile(mBitmap, "headPortrait" + userName + ".jpg");
+                mHPImage = ImageUtils.saveFile(mBitmap, "headPortrait" + userName + ".png");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             Bitmap bm = BitmapFactory.decodeResource(getResources(), R.mipmap.register);
             try {
-                mHPImage = ImageUtils.saveFile(bm, "headPortrait" + userName + ".jpg");
+                mHPImage = ImageUtils.saveFile(bm, "headPortrait" + userName + ".png");
             } catch (IOException e) {
                 e.printStackTrace();
             }

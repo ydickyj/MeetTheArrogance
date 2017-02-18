@@ -1,7 +1,9 @@
 package app.dicky.meetthearrogance.ui.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyphenate.chat.EMClient;
@@ -19,6 +21,8 @@ import app.dicky.meetthearrogance.mvpView.ConversationView;
 import app.dicky.meetthearrogance.utils.ThreadUtils;
 import butterknife.BindView;
 
+import static app.dicky.meetthearrogance.R.color.groove_color;
+
 /**
  * 创建者:   dicky
  * 创建时间:  2016/10/17 22:32
@@ -32,6 +36,8 @@ public class ConversationFragment extends BaseFragment implements ConversationVi
     TextView mTitle;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+    @BindView(R.id.head_title)
+    RelativeLayout mHeadTitle;
 
     private ConversationAdapter mConversationAdapter;
 
@@ -60,9 +66,9 @@ public class ConversationFragment extends BaseFragment implements ConversationVi
         super.init();
         mConversationPresenter = new ConversationPresenterImpl(this);
         mTitle.setText(getString(R.string.messages));
-
+        mHeadTitle.setBackgroundColor(Color.parseColor("#0093b9"));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mConversationAdapter = new ConversationAdapter(getContext(), mConversationPresenter.getConversations());
+        mConversationAdapter = new ConversationAdapter(getContext(), mConversationPresenter.getmConversations());
         mRecyclerView.setAdapter(mConversationAdapter);
 
         mConversationPresenter.loadAllConversations();

@@ -9,6 +9,7 @@
     <item name="conversations" type="id" />
     <item name="contacts" type="id" />
     <item name="dynamic" type="id" />
+    <item name="person" type="id" />
     <item name="fragment_container" type="id" />
     <item name="back" type="id" />
     <item name="add" type="id" />

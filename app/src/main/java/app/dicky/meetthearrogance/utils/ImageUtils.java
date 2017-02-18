@@ -223,7 +223,7 @@ public class ImageUtils {
         File myCaptureFile = new File(path + fileName);
 
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
-        bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
+        bm.compress(Bitmap.CompressFormat.PNG, 80, bos);
         bos.flush();
         bos.close();
         return myCaptureFile;

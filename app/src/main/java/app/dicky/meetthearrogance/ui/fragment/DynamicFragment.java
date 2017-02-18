@@ -1,7 +1,9 @@
 package app.dicky.meetthearrogance.ui.fragment;
 
+import android.graphics.Color;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyphenate.chat.EMClient;
@@ -29,6 +31,8 @@ public class DynamicFragment extends BaseFragment implements DynamicView {
     Button mLogout;
     @BindView(R.id.back)
     ImageView mBack;
+    @BindView(R.id.head_title)
+    RelativeLayout mHeadTitle;
 
     private DynamicPresenter mDynamicPresenter;
 
@@ -44,7 +48,7 @@ public class DynamicFragment extends BaseFragment implements DynamicView {
         String logout = String.format(getString(R.string.logout), EMClient.getInstance().getCurrentUser());
         mLogout.setText(logout);
         mTitle.setText(getString(R.string.dynamic));
-
+        mHeadTitle.setBackgroundColor(Color.parseColor("#a62631"));
     }
 
     @OnClick(R.id.logout)

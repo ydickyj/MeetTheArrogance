@@ -2,9 +2,13 @@ package app.dicky.meetthearrogance.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,6 +44,8 @@ public class ConversationItemView extends RelativeLayout {
     TextView mUnreadCount;
     @BindView(R.id.conversation_item_container)
     RelativeLayout mConversationItemContainer;
+    @BindView(R.id.avatar)
+    ImageView mHead;
 
     public ConversationItemView(Context context) {
         this(context, null);
@@ -55,10 +61,12 @@ public class ConversationItemView extends RelativeLayout {
         ButterKnife.bind(this, this);
     }
 
-    public void bindView(final EMConversation emConversation) {
+    public void bindView(final EMConversation emConversation, String headPath) {
         mUserName.setText(emConversation.getLastMessage().getUserName());
         updateLastMessage(emConversation);
         updateUnreadCount(emConversation);
+        Bitmap bitmap = BitmapFactory.decodeFile(headPath);
+        mHead.setImageBitmap(bitmap);
         mConversationItemContainer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +75,7 @@ public class ConversationItemView extends RelativeLayout {
                 getContext().startActivity(intent);
             }
         });
+
     }
 
     private void updateLastMessage(EMConversation emConversation) {
